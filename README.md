@@ -38,3 +38,7 @@ Spustenie:
 	flask run
 
 Nasledne je mozne otvorit program cez webovy prehliadac na lokalnej adrese.
+
+
+API dokumentacia:
+https://documenter.getpostman.com/view/22362176/UzXYqXJo
