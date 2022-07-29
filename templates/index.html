@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+        <title>Title</title>
+    </head>
+
+    <body>
+        <div class="title_div">
+            <h1>Zadanie - Michal Staron</h1>
+        </div>
+
+        <div class="buttons_div">
+            <table class="add_and_search_tab">
+                <tr class="add_and_search_tr">
+                    <th>ADD</th>
+                    <th> </th>
+                </tr>
+                <tr class="add_and_search_tr">
+                    <td>
+                        <form action="/add_post_w_form" method="POST">
+                            <table class="add_tab">
+                                  <tr class="add_tr">
+                                    <td class="add_td">
+                                        <p>Title:</p>
+                                    </td>
+                                    <td class="add_td">
+                                        <input type="text" name="title" placeholder="Title of article..." required="required"><br>
+                                    </td>
+                                  </tr>
+                                <tr class="add_tr">
+                                   <td class="add_td">
+                                        <p>Body:</p>
+                                    </td>
+                                    <td class="add_td">
+                                        <input type="text" name="body" placeholder="Body of article..." required="required"><br>
+                                    </td>
+                                </tr>
+                                <tr class="add_tr">
+                                   <td class="userID_stlye add_td">
+                                        <p>User ID:</p>
+                                    </td>
+                                    <td class="add_td">
+                                        <input type="number" name="userId" placeholder="ID of user" required="required"><br>
+                                    </td>
+                                </tr>
+                                    <tr class="add_tr">
+                                    <td colspan="2" class="add_td">
+                                        <button type="submit">Add</button>
+                                    </td>
+                                </tr>
+                                </tr>
+                            </table>
+                        </form>
+                    </td>
+                    <td>
+                        <h3>Vyhladavanie clankov podla:</h3>
+                        <form action="/search_post" method="POST">
+                            <input type="radio" id="id_id" value="by_id" name="search_by">
+                            <label for="id_id">ID</label><br>
+                            <input type="radio" id="id_userId" value="by_userId" name="search_by">
+                            <label for="id_id">userId</label><br>
+                            <input type="number" name="searching_for" required="required"e><br>
+                            <input type="submit" value="HLADAJ">
+                        </form>
+                        <a href="/">RESET SEARCH</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+
+        <div class="content_div">
+            <table class="content_tab">
+                <tr class="article_tr">
+                    <th class="article_id_in_tab">
+                        <p>ID</p>
+                    </th>
+                    <th class="article_id_in_tab">
+                        <p>userID</p>
+                    </th>
+                    <th class="article_in_tab">
+                        <p>TITLE</p>
+                    </th>
+                    <th class="article_in_tab">
+                        <p>BODY</p>
+                    </th>
+                    <th class="article_in_tab">
+                        <p>UPDATE</p>
+                    </th>
+                    <th class="article_in_tab">
+                        <p>DELETE</p>
+                    </th>
+                </tr>
+
+                {% for post in todo_list %}
+                <form action="/update_post_w_form" method="POST">
+                    <tr class="article_tr">
+                        <td class="article_id_in_tab">
+                            <p>{{post.id }}</p>
+                            <input type="hidden" name="id" value="{{post.id }}" required="required"></input>
+                        </td>
+                        <td class="article_id_in_tab">
+                            <p>{{post.userId }}</p>
+                            <input type="hidden" name="userId" value="{{post.userId }}" required="required"></input>
+                        </td>
+                        <td class="article_in_tab">
+                            <input type="text" name="title" value="{{post.title }}" required="required"></input>
+                        </td>
+                        <td class="article_in_tab">
+                            <input type="text" name="body" value="{{post.body }}" required="required"></input>
+                        </td>
+                        <td class="article_in_tab">
+                            <button type="submit">UPDATE</button>
+                        </td>
+                        <td class="article_in_tab">
+                            <a href="/del_post_w_form/{{post.id}}">DELETE</a>
+                        </td>
+                    </tr>
+                </form>
+                {% endfor %}
+            </table>
+
+        </div>
+        <br>
+
+    </body>
+</html>

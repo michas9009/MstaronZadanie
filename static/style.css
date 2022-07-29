@@ -1,0 +1,68 @@
+.title_div{
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    height: 100px;
+}
+
+.buttons_div, .content_div, .find_div {
+    margin: auto;
+    background-color: #d0d0d0;
+    height: 80%;
+    width: 80%;
+}
+
+.add_tab{
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.add_tr{
+    text-align: center;
+}
+
+.add_td{
+    border: 1px solid black;
+}
+
+.add_and_search_tab{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    align-content: center;
+    text-align: center;
+}
+
+.add_and_search_tr{
+    width: 50%;
+}
+
+.content_tab{
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+.article_id_in_tab{
+    border: 1px solid black;
+    width: 5%;
+    text-align: center;
+}
+
+.article_in_tab{
+    border: 1px solid black;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.userID_stlye{
+    line-height: 35%;
+}
+
+.a, .b{
+    color: #b11519;
+}
